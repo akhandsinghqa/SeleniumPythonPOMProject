@@ -7,6 +7,7 @@ from Pages.HomePage import HomePage
 
 class LoginPage(BasePage):
     # By locators or Page Elements
+    ACCEPT_COOKIES = (By.ID, "hs-eu-confirmation-button")
     EMAIL = (By.ID, "username")
     EMAIL_SUBMIT_BUTTON = (By.XPATH, ".//button[@data-test-id='email-submit-button']")
     PASSWORD_BUTTON = (By.ID, "passwordBtn")
@@ -19,6 +20,7 @@ class LoginPage(BasePage):
         super().__init__(driver)
         self.driver.maximize_window()
         self.driver.get(TestData.BASE_URL)
+        self.do_click(self.ACCEPT_COOKIES)
 
     # Page actions
 
